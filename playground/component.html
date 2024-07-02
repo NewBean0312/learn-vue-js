@@ -8,7 +8,10 @@
   <body>
     <div id="app">
       <app-header></app-header>
-      <app-content></app-content>
+      <app-footer></app-footer>
+    </div>
+    <div id="app2">
+      <app-header></app-header>
       <app-footer></app-footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -17,9 +20,6 @@
       // Vue.component("컴포넌트 이름", 컴포넌트 내용);
       Vue.component("app-header", {
         template: "<h1>Header</h1>",
-      });
-      Vue.component("app-content", {
-        template: "<div>content</div>",
       });
       /*
       new Vue({
@@ -33,6 +33,17 @@
       // }
       new Vue({
         el: "#app",
+        components: {
+          "app-footer": {
+            template: "<footer>footer</footer>",
+          },
+        },
+      });
+      // 인스턴스를 두개로 사용할 수 있음.
+      // 전역 컴포넌트는 인스턴스 둘다 사용할 수 있으나,
+      // 지역 컴포넌트는 components로 생성해줘야 함.
+      new Vue({
+        el: "#app2",
         components: {
           "app-footer": {
             template: "<footer>footer</footer>",
