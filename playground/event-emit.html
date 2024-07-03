@@ -26,16 +26,33 @@
           },
         },
       };
+
+      var appContent = {
+        template: '<button v-on:click="addNumber">add</button>',
+        methods: {
+            addNumber: function() {
+                this.$emit("increase");
+            }
+        }
+      }
+
       new Vue({
         el: "#app",
         components: {
           "app-header": appHeader,
+          "app-content": appContent,
         },
         methods: {
           logText: function () {
             console.log("hi");
           },
+          increaseNumber: function() {
+            this.num = this.num + 1;
+          }
         },
+        data: {
+            num: 10
+        }
       });
     </script>
   </body>
